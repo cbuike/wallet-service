@@ -11,10 +11,10 @@ services:
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
     networks:
-      - event-network
+      - wallet-network
 
 volumes:
   postgres-data:
 
 networks:
-  event-network:
+  wallet-network:
