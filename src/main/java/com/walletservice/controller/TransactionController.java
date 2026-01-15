@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * REST controller for managing transactions.
  * <p>
- * Provides endpoints for creating transactions and transfers.
+ * Provides endpoints for creating / getting transactions and transfers.
  *
  * @author Chibuike Okeke
  * @version 1.0
@@ -44,7 +44,7 @@ public class TransactionController {
      * Create a transaction for DEBIT/CREDIT.
      *
      * @param request the transaction creation request
-     * @return message if successful!
+     * @return TransactionResponse if successful!
      * @throws com.walletservice.exception.NotFoundException if the given wallet is not found!
      */
     @Operation(
@@ -80,7 +80,7 @@ public class TransactionController {
      * Create a transaction for transfers between wallets
      *
      * @param request the transfer request
-     * @return message if successful!
+     * @return transfer response if successful!
      * @throws com.walletservice.exception.NotFoundException if either of the wallets (to/from) not found
      */
     @Operation(

@@ -16,6 +16,7 @@ import com.walletservice.service.TransactionService;
 import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class TransactionServiceImpl implements TransactionService {
 
     private final TransactionRepository transactionRepository;
@@ -54,18 +56,16 @@ public class TransactionServiceImpl implements TransactionService {
         Wallet wallet = walletRepository.findById(walletId)
                 .orElseThrow(() -> new RuntimeException("Wallet not found"));
 
-        // TODO: check for balance before debit/credit operation
-
         if(transactionType.equals(TransactionType.DEBIT.name())) {
-            selectedTransactionType = TransactionType.DEBIT;
 
             if(wallet.getBalance() < amount){
                 throw new ServiceException("Transaction failed with insufficient fund!");
             }
 
+            selectedTransactionType = TransactionType.DEBIT;
             wallet.debit(amount);
         }else if(transactionType.equals(TransactionType.CREDIT.name())) {
-            selectedTransactionType = TransactionType.DEBIT;
+            selectedTransactionType = TransactionType.CREDIT;
             wallet.credit(amount);
         }else{
             // invalid transaction type provided

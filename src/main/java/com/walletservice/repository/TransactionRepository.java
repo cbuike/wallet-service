@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 /**
  * Repository interface for managing {@link Transaction} entities.
  * <p>
- * Provides CRUD operations and custom queries for transactions
+ * Provides CRUD operations and custom queries for transactions persistence
  *
  * @author Chibuike Okeke
  * @version 1.0

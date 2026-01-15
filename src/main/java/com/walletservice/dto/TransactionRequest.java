@@ -13,7 +13,7 @@ public class TransactionRequest {
     @Schema(description = "amount", example = "100")
     private Integer amount;
 
-    @Schema(description = "transaction type", example = "DEBIT or CREDIT")
+    @Schema(description = "transaction type", example = "CREDIT")
     private String type;
 
     @Schema(description = "idempotencyKey", example = "ID_kEY_0922")
