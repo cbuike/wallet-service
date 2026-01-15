@@ -13,7 +13,7 @@ This project was built as an interview coding task and demonstrates:
 - Docker
 - Maven
 - Spring Boot 3+
-- PostgreSQL
+- PostgreSQL 14
 - JPA / Hibernate
 - OpenAPI (Swagger UI)
 - Unit Tests
@@ -64,7 +64,7 @@ Ensure you have the following installed:
 
 - Docker
 - Maven
-- PostgreSQL 14+
+- PostgreSQL 14 `the docker compose file will handle this when ran`
 
 
 ## How to run 
@@ -129,7 +129,7 @@ curl -X POST http://localhost:8083/transactions/transfer \
 
 6. Get wallet by ID
 ```
-   curl -X GET http://localhost:8083/wallets/{UUID}
+   curl -X GET http://localhost:8083/wallets/{walletId}
 ```
 
 7. Get all transactions
